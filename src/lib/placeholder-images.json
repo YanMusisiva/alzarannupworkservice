@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "job-opening",
+      "description": "A 'We are hiring' sign in a shop window.",
+      "imageUrl": "https://images.unsplash.com/photo-1656691039746-dd71cab71002?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoaXJpbmclMjBzaWdufGVufDB8fHx8MTc2MTkyMDQ4M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hiring sign"
+    },
+    {
+      "id": "new-product-coffee",
+      "description": "A close-up of a new artisanal coffee blend.",
+      "imageUrl": "https://images.unsplash.com/photo-1664794597070-f36c813f352e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhcnRpc2FuYWwlMjBjb2ZmZWV8ZW58MHx8fHwxNzYxODE1Njg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "artisanal coffee"
+    },
+    {
+      "id": "bakery-special",
+      "description": "Freshly baked pastries on display.",
+      "imageUrl": "https://images.unsplash.com/photo-1736520537688-1f1f06b71605?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmcmVzaCUyMHBhc3RyaWVzfGVufDB8fHx8MTc2MTkyMDQ4M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh pastries"
+    },
+    {
+      "id": "grand-opening",
+      "description": "A storefront decorated for a grand opening.",
+      "imageUrl": "https://images.unsplash.com/photo-1567966773954-b9b3096fb387?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z3JhbmQlMjBvcGVuaW5nfGVufDB8fHx8MTc2MTkyMDQ4M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grand opening"
+    },
+    {
+      "id": "local-event",
+      "description": "A community event in a park.",
+      "imageUrl": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21tdW5pdHklMjBldmVudHxlbnwwfHx8fDE3NjE4MzQ4MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "community event"
+    }
+  ]
 }
