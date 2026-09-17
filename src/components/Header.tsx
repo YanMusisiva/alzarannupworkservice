@@ -1,42 +1,24 @@
-"use client";
-
 import Link from 'next/link';
-import { useUser } from '@/hooks/useUser';
-import { Button } from '@/components/ui/button';
+import { ChevronDown, Menu } from 'lucide-react';
 import { AnnLogo } from '@/components/AnnLogo';
-import { MapPin, PlusCircle, LogOut } from 'lucide-react';
+import { getCurrentUser } from '@/lib/auth';
+import { logoutAction } from '@/actions';
 
-export function Header() {
-  const { user, logout } = useUser();
-
-  return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto flex h-16 items-center space-x-4 px-4 sm:justify-between sm:space-x-0">
-        <Link href="/" className="flex items-center space-x-2">
-          <AnnLogo className="h-8 w-auto" />
-        </Link>
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-2">
-            {user && (
-              <>
-                <div className="hidden items-center gap-2 rounded-md border bg-card px-3 py-1.5 text-sm font-medium text-muted-foreground md:flex">
-                  <MapPin className="h-4 w-4" />
-                  <span>{user.city}</span>
-                </div>
-                <Button asChild>
-                  <Link href="/new">
-                    <PlusCircle className="mr-2 h-4 w-4" />
-                    New Post
-                  </Link>
-                </Button>
-                <Button variant="ghost" size="icon" onClick={logout} aria-label="Log out">
-                    <LogOut className="h-5 w-5" />
-                </Button>
-              </>
-            )}
-          </nav>
-        </div>
+export async function Header() {
+  const user = await getCurrentUser();
+  return <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
+    <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-5 lg:px-8">
+      <Link href="/" aria-label="Accueil Alzar Group"><AnnLogo className="h-9 w-auto" /></Link>
+      <nav className="hidden items-center gap-7 text-[15px] font-medium text-slate-700 lg:flex">
+        <Link className="transition hover:text-primary" href="/prestataires">Trouver un professionnel</Link>
+        <Link className="transition hover:text-primary" href="/demandes">Trouver une mission</Link>
+        <span className="flex cursor-default items-center gap-1">Nos villes <ChevronDown className="h-4 w-4" /></span>
+      </nav>
+      <div className="flex items-center gap-3">
+        {user ? <><Link className="hidden font-semibold text-slate-700 sm:block" href="/compte">{user.name}</Link><form action={logoutAction}><button className="text-sm text-slate-500">Quitter</button></form></> : <Link className="hidden px-3 py-2 text-sm font-semibold text-slate-700 sm:block" href="/connexion">Se connecter</Link>}
+        <Link className="rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-emerald-700" href="/publier">Publier un besoin</Link>
+        <button className="rounded-lg border p-2 lg:hidden" aria-label="Ouvrir le menu"><Menu className="h-5 w-5" /></button>
       </div>
-    </header>
-  );
+    </div>
+  </header>;
 }

@@ -1,0 +1,9 @@
+import Link from 'next/link';
+import { Header } from '@/components/Header';
+import { registerAction } from '@/actions';
+import { CityField, FormMessage, inputClass, labelClass } from '@/components/FormFields';
+
+export default async function RegisterPage({ searchParams }: { searchParams: Promise<{ erreur?: string }> }) {
+  const { erreur } = await searchParams;
+  return <><Header /><main className="mx-auto max-w-xl px-4 py-12"><div className="rounded-2xl border bg-card p-7 shadow-sm"><h1 className="text-3xl font-bold">Creer mon compte</h1><p className="mt-2 text-muted-foreground">L'inscription prend moins d'une minute.</p><form action={registerAction} className="mt-8 grid gap-5"><FormMessage error={erreur} /><label className={labelClass}>Nom complet<input className={inputClass} name="name" required /></label><div className="grid gap-5 sm:grid-cols-2"><label className={labelClass}>Telephone<input className={inputClass} name="phone" type="tel" placeholder="+243..." required /></label><CityField /></div><fieldset><legend className="mb-2 text-sm font-semibold">Je veux principalement</legend><div className="grid gap-3 sm:grid-cols-2"><label className="rounded-md border p-4"><input className="mr-2" type="radio" name="role" value="client" defaultChecked />Trouver un prestataire</label><label className="rounded-md border p-4"><input className="mr-2" type="radio" name="role" value="provider" />Vendre mes services</label></div></fieldset><label className={labelClass}>Mot de passe<input className={inputClass} name="password" type="password" minLength={8} required /></label><button className="h-12 rounded-md bg-primary font-bold text-primary-foreground">Creer mon compte</button></form><p className="mt-6 text-center text-sm">Deja inscrit ? <Link className="font-bold text-primary" href="/connexion">Se connecter</Link></p></div></main></>;
+}

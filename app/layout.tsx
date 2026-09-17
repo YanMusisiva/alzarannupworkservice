@@ -4,8 +4,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'ANN: Local Buzz',
-  description: 'Your local announcement board for small enterprises.',
+  title: { default: 'Alzar Group — Les services pres de chez vous', template: '%s | Alzar Group' },
+  description: 'Trouvez et contactez des prestataires de services locaux a Beni, Goma et Bunia.',
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

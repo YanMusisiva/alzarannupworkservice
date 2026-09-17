@@ -1,0 +1,10 @@
+import { Header } from '@/components/Header';
+import { createRequestAction } from '@/actions';
+import { requireUser } from '@/lib/auth';
+import { CategoryField, CityField, FormMessage, inputClass, labelClass, textareaClass } from '@/components/FormFields';
+
+export const dynamic = 'force-dynamic';
+export default async function PublishPage({ searchParams }: { searchParams: Promise<{ erreur?: string }> }) {
+  const user = await requireUser(); const { erreur } = await searchParams;
+  return <><Header /><main className="mx-auto max-w-2xl px-4 py-12"><div className="rounded-2xl border bg-card p-7 shadow-sm"><p className="font-bold text-primary">VOTRE BESOIN</p><h1 className="mt-2 text-3xl font-bold">Publier une demande de service</h1><p className="mt-2 text-muted-foreground">Donnez assez de details pour recevoir des appels utiles.</p><form action={createRequestAction} className="mt-8 grid gap-5"><FormMessage error={erreur} /><label className={labelClass}>Titre de la demande<input className={inputClass} name="title" placeholder="Ex. Je cherche un electricien pour reparer mon installation" required /></label><label className={labelClass}>Description<textarea className={textareaClass} name="description" placeholder="Expliquez le probleme, le delai et les conditions importantes..." required /></label><div className="grid gap-5 sm:grid-cols-2"><CityField defaultValue={user.city} /><CategoryField /></div><div className="grid gap-5 sm:grid-cols-2"><label className={labelClass}>Quartier (facultatif)<input className={inputClass} name="neighborhood" /></label><label className={labelClass}>Budget indicatif (facultatif)<input className={inputClass} name="budget" placeholder="Ex. A discuter" /></label></div><label className={labelClass}>Telephone de contact<input className={inputClass} name="phone" type="tel" defaultValue={user.phone} required /></label><button className="h-12 rounded-md bg-primary font-bold text-primary-foreground">Publier ma demande</button></form></div></main></>;
+}
